@@ -21,7 +21,7 @@ Add the RabbitAdmin bean as configuration, which allows us to create queues and 
         return new RabbitAdmin(connectionFactory);
     }
 ```
-The `RabbitMQController` class file in the project is responsible for exposing API's for dynamically adding exchange, queue and binding queue with exchange.
+The `RabbitMQController.java` class file in the project is responsible for exposing API's for dynamically adding exchange, queue and binding queue with exchange.
 
 #### Publish and Consume acknowledgement
 When a message is sent to RabbitMQ, we want to confirm that:
@@ -56,7 +56,7 @@ spring.rabbitmq.template.mandatory=true
    This setting ensures unroutable messages are returned instead of being lost.
 
 #### Configuration for acknowledgement
-`RabbitCallbackConfig` class file implements the configuration for acknowledgement.
+`RabbitCallbackConfig.java` class file implements the configuration for acknowledgement.
 
 rabbitTemplate.setConfirmCallback() is for acknowledging if message reached to exchange or not.
 
@@ -70,4 +70,4 @@ Send a `CorrelationData` for uniquely identify the message.
 
 2. Manual Acknowledgement (ackMode=MANUAL): Consumer explicitly acknowledges after processing.
 
-`RabbitMqConsumer` class implements the consumer with acknowledgement.
+`RabbitMqConsumer.java` class implements the consumer with acknowledgement.
